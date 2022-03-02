@@ -1,0 +1,36 @@
+version: '3.7'
+services:
+
+  gis-mongodb:
+    image: mongo
+    container_name: gis-mongodb
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - "./mongodb/configdb:/data/configdb"
+      - "./mongodb/db:/data/db"
+      - /etc/localtime:/etc/localtime
+    networks:
+      - gis-network
+    # command: mongod --auth
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root       #初始化管理员用户名和密码
+      - MONGO_INITDB_ROOT_PASSWORD=123456
+      - TZ="Asia/Shanghai"
+    tty: true
+
+  gis-mongo-express:
+    image: mongo-express
+    container_name: gis-mongo-express
+    restart: always
+    ports:
+      - 8020:8081
+    networks:
+      - gis-network
+    environment:
+      ME_CONFIG_MONGODB_URL: "mongodb://root:123456@gis-mongodb:27017"
+
+networks:
+  gis-network:
+    external: true
