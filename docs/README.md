@@ -14,6 +14,17 @@ sudo docker-compose up -d gis-mongo-express
 sudo docker-compose stop gis-mongo-express
 sudo docker-compose rm gis-mongo-express
 
+sudo npm install -g nodemon
+
+npm install @mapbox/node-pre-gyp
+
+rm -rf node_modules
+npm install
+
+# node-pre-gyp install --fallback-to-build
+
+sudo yum install gcc-c++
+
 npm run server
 npm run client
 ```
