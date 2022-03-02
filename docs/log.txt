@@ -1,0 +1,4 @@
+sh: nodemon: command not found
+
+npm run server
+Error: Cannot find module '@mapbox/node-pre-gyp'
