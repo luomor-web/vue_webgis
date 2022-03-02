@@ -49,7 +49,7 @@ module.exports = {
         hotOnly: false,
         proxy: { // 配置跨域
             '/api': {
-                target: 'http://localhost:5050/api/',
+                target: 'http://49.232.6.131:5050/api/',
                 ws: true,
                 changOrigin: true,
                 pathRewrite: {
