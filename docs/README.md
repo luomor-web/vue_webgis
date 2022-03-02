@@ -27,6 +27,35 @@ sudo yum install gcc-c++
 
 npm run server
 npm run client
+
+mongo mongodb://root:123456@localhost:27017/admin
+
+db.createUser({
+    user:'test',
+    pwd:'123456',
+    roles:[
+        {
+            role:'userAdminAnyDatabase',
+            db:'admin'
+        }
+    ]
+})
+
+mongo mongodb://test:123456@localhost:27017/admin
+
+use vue_webgis
+db.createUser({
+    user:'test',
+    pwd:'123456',
+    roles:[
+    {
+        role:'readWrite',
+        db:'vue_webgis'
+    }
+    ]
+})
+mongo mongodb://test:123456@localhost:27017/vue_webgis
+
 ```
 
 ```shell
