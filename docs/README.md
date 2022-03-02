@@ -13,8 +13,15 @@ sudo docker-compose up gis-mongo-express
 sudo docker-compose up -d gis-mongo-express
 sudo docker-compose stop gis-mongo-express
 sudo docker-compose rm gis-mongo-express
+
+npm run server
+npm run client
 ```
 
 ```shell
 sudo docker network create --subnet=172.19.0.0/16 gis-network
+```
+
+```
+nodemon
 ```
